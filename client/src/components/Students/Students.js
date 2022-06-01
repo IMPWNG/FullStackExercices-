@@ -2,11 +2,11 @@ import React from "react";
 
 import Student from "./Student/Student";
 
-function Students({ student }) {
+function Students() {
 
   return (
     <div>
-        <Student student={student} />
+        <Student />
     </div>
   );
 }
