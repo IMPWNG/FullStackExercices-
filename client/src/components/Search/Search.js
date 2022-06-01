@@ -1,51 +1,36 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
+import { StudentsContext } from '../../context'
 
-import { getStudents } from "../../api/index";
+import { filterStudentsByName } from '../../helpers';
 
 
 export default function Search() {
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
-  const [query, setQuery] = useState("");
-  const students = data.students;
-
-  // Get data from API
-  useEffect(() => {
-    const getDataFromServer = async () => {
-      const data = await getStudents();
-      setData(data);
-      setLoading(false);
-    };
-    getDataFromServer();
-  }, []);
-
+  //Context
+  const { students } = useContext(StudentsContext);
+  //State
+  const [filterByName, setFilterByName] = useState('');
+  const [filterByNameResulsts, setFilterByNameResults] = useState([]);
+  const searchResult = [...filterByNameResulsts];
 
   return (
     <div>
       <input
         type="text"
+        name="filterByName"
+        value={filterByName}
         placeholder="Search..."
         className="p-10 text-sm"
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={(e) => {
+          setFilterByName(e.target.value);
+        }}
+        onKeyUp={(e) => {
+          filterStudentsByName(
+            e.target.value,
+            students,
+            setFilterByNameResults
+          );
+        }}
       />
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
-        <ul className="p-0 text-center">
-          {students
-              .map((student) => (
-                <>
-                  <li
-                    key={student.id}
-                    className="mb-5 text-sm text-red-500 font-light"
-                  >
-                    {student.firstName}
-                  </li>
-                </>
-              ))
-          }
-        </ul>
-      )}
     </div>
   );
 }
