@@ -1,6 +1,6 @@
 import React from "react";
 
-import { getAverageOfGrades } from "../../../helpers";
+import { getAverageOfGrades } from "../../helpers";
 
 export default function Student(props) {
   const student = props.student;

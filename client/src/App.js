@@ -3,7 +3,7 @@ import { StudentsContext } from "./context";
 
 // import { getData } from "./api/index";
 
-import Student from "././components/Students/Student/Student";
+import Student from "./components/Student/Student";
 // import Search from "./components/Search/Search";
 
 function App() {
