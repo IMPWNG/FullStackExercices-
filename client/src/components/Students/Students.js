@@ -6,7 +6,7 @@ function Students() {
 
   return (
     <div>
-        <Student />
+        <Student/>
     </div>
   );
 }

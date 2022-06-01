@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { getAverageOfGrades } from "../../../helpers";
 
@@ -23,7 +23,7 @@ export default function Student(props) {
             </p>
           </div>
           <div className="flex items-center">
-            <img src={student.pic} alt="" />
+            <img src={student.images} alt="" />
           </div>
         </div>
       </div>

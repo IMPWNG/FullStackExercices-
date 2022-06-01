@@ -10,19 +10,17 @@ export default function StudentsProvider(props) {
   const [students, setStudents] = useState([]);
 
   // API call
-  useEffect(() => {
-    setLoading("Processing...");
-    const getData = async () => axios.get(SERVER_URL)
-    // Get data from API
+ useEffect(() => {
+    setLoading(true);
+    axios
+      .get(SERVER_URL)
       .then((res) => {
         setStudents(res.data.students);
-        setLoading(null);
+        setLoading("found");
       })
       .catch((err) => {
         console.log(err);
-        setLoading("Failed to get data");
       });
-    getData();
   }, []);
   
   return (
@@ -36,3 +34,4 @@ export default function StudentsProvider(props) {
     </StudentsContext.Provider>
   );
 }
+

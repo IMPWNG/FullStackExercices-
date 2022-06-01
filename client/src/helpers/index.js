@@ -8,3 +8,5 @@ const getAverageOfGrades = (grades) => {
     }
     return sum / grades.length;
 };
+
+export { getAverageOfGrades };

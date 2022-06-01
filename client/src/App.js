@@ -3,17 +3,23 @@ import { StudentsContext } from "./context";
 
 // import { getData } from "./api/index";
 
-import Students from "./components/Students/Students";
+import Student from "././components/Students/Student/Student";
+// import Search from "./components/Search/Search";
 
 function App() {
-  // const data = useState([]);
-  // const students = data.students;
+const { loading, students } = useContext(StudentsContext);
+
 
   return (
     <div className="App grid place-items-center h-screen">
-      {/* <Search /> */}
+    
       <div>
-            <Students />
+          {students.map((student) => (
+            <>
+              <Student student={student} />
+            </>
+            ))}
+            
         </div>
     </div>
   );
