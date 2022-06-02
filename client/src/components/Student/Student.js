@@ -6,7 +6,7 @@ export default function Student(props) {
   const student = props.student;
 
   return (
-    <div id="student" className="text-center">
+    <div key={student.id} id="student" className="text-center">
       <div className="text-red-500 font-bold text-xl">
         <h1>{student.firstName + " " + student.lastName}</h1>
       </div>

@@ -6,9 +6,10 @@ import { StudentsContext } from '../../context'
 import Students from "../Students/Students";
 
 
-export default function Search() {
+export default function Search(student) {
   //Context
   const { students } = useContext(StudentsContext);
+
   //State
   const [ query, setQuery ] = useState('');
 
@@ -17,9 +18,24 @@ export default function Search() {
   // const [filterByNameResulsts, setFilterByNameResults] = useState([]);
   // const searchResult = [...filterByNameResulsts];
 
+  // search with all the key possible
+   
+  const finalSearch = students.filter(student => {
+    return (
+      student.firstName.toLowerCase().includes(query.toLowerCase()) ||
+      student.lastName.toLowerCase().includes(query.toLowerCase()) ||
+      student.email.toLowerCase().includes(query.toLowerCase()) ||
+      student.company.toLowerCase().includes(query.toLowerCase()) ||
+      student.skill.toLowerCase().includes(query.toLowerCase())
+    );
 
+    // search by grades
+    // 
+     
+  })
+ 
   return (
-    <div>
+    <div className='p-2.5 text-lg'>
       <input
         type="text"
         name="filterByName"
@@ -31,13 +47,8 @@ export default function Search() {
       />
       <div className="space-y-6 h-96 overflow-auto grid place-items-center">
         {students.map((student) => {
-          if (student.firstName.toLowerCase().includes(query.toLowerCase())) {
-            return (
-              <Students
-                key={student.id}
-                student={student}
-              />
-            )
+          if (finalSearch.includes(student)) {
+            return <Students student={student} key={student.id} />
           }
         })}
       </div>
