@@ -12,6 +12,8 @@
 ## TODO
 
 - Design the UI
+ - Search component
+ - Data component
 - Add the ability to add new students
 - Add the ability to edit students
 - Add the ability to delete students
