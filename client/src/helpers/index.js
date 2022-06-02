@@ -9,17 +9,17 @@ const getAverageOfGrades = (grades) => {
     return sum / grades.length;
 };
 
-const filterStudentsByName = (name, students, setResults) => {
-  // Search for students by name
-    const results = students.filter((student) => {
-        return student.firstName.toLowerCase().includes(name.toLowerCase());
-    }
-    );
-    setResults(results);
+// const filterStudentsByName = (name, students, setResults) => {
+//   // Search for students by name
+//     const results = students.filter((student) => {
+//         return student.firstName.toLowerCase().includes(name.toLowerCase());
+//     }
+//     );
+//     setResults(results);
     
-};
+// };
 
 
 
 
-export { getAverageOfGrades, filterStudentsByName };
+export { getAverageOfGrades };
